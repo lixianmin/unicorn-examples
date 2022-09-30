@@ -40,20 +40,20 @@ namespace Client
             {
                 yield break;
             }
-		
-            var fullpath = "/Users/xmli/code/unity-vr/resource/android/metadata.raw";
-            if (!fullpath.IsNullOrEmptyEx())
+            
+            var fullPath = PathTools.DefaultBasePath +  "/metadata.raw";
+            Console.WriteLine(fullPath);
+            if (!fullPath.IsNullOrEmptyEx())
             {
                 try
                 {
-                    var stream = File.OpenRead(fullpath);
+                    var stream = File.OpenRead(fullPath);
                     metadataManager.LoadRawStream(stream);
                 }catch(Exception ex)
                 {
                     Console.Error.WriteLine("[_CoLoadMetadata()] load metadata failed, ex={0}", ex.ToString());
                 }
             }
-
 
             var version = metadataManager.GetMetadataVersion();
             Console.WriteLine("[_CoLoadMetadata()] Metadata Loaded, metadataVersion={0}.", version.ToString());
