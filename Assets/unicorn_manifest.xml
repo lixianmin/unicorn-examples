@@ -3,6 +3,10 @@
   <editorSettings>
     <colorSpace>Linear</colorSpace>
   </editorSettings>
-  <relativePaths />
-  <makeAutoCode>false</makeAutoCode>
+  <relativePaths>
+    <string>resource</string>
+    <string xsi:nil="true" />
+    <string>resource/metadata</string>
+  </relativePaths>
+  <makeAutoCode>true</makeAutoCode>
 </UnicornManifest>
