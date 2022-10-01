@@ -6,25 +6,28 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
-using System;
 using System.Collections;
-using System.IO;
-using Metadata;
 using Unicorn;
-using Unicorn.UI;
 using UnityEngine;
 
 namespace Client
 {
+    /// <summary>
+    /// MbGame是项目入口, 通常不允许在client项目中建立其它的MonoBehaviour脚本, 原因是逻辑上不同对象的Update()方法通常有先后顺序要求, 
+    /// 如果使用不同的MonoBehaviour脚本的话,这个顺序将难以控制
+    /// </summary>
     public class MbGame: MonoBehaviour
     {
-        private void Start()
+        private IEnumerator Start()
         {
             // 避免Game对象在场景切换的时候被干掉
             GameObject.DontDestroyOnLoad(gameObject);
             _unicornMain.Init();
+
+            yield return StartCoroutine(_metadataManager.CoLoadMetadata());
             
-            CoroutineManager.StartCoroutine(_CoLoadMetadata());
+            // UIManager.OpenWindow(typeof(UIMain));
+            // UIManager.OpenWindow(typeof(UIAdjustNumber));
         }
 
         private void Update()
@@ -32,34 +35,6 @@ namespace Client
             var deltaTime = Time.deltaTime;
             _unicornMain.Update(deltaTime);
             _game.Update(deltaTime);
-        }
-        
-        private IEnumerator _CoLoadMetadata()
-        {
-            if (MetadataManager.Instance is not GameMetadataManager metadataManager)
-            {
-                yield break;
-            }
-            
-            var fullPath = PathTools.DefaultBasePath +  "/metadata.raw";
-            Console.WriteLine(fullPath);
-            if (!fullPath.IsNullOrEmptyEx())
-            {
-                try
-                {
-                    var stream = File.OpenRead(fullPath);
-                    metadataManager.LoadRawStream(stream);
-                }catch(Exception ex)
-                {
-                    Console.Error.WriteLine("[_CoLoadMetadata()] load metadata failed, ex={0}", ex.ToString());
-                }
-            }
-
-            var version = metadataManager.GetMetadataVersion();
-            Console.WriteLine("[_CoLoadMetadata()] Metadata Loaded, metadataVersion={0}.", version.ToString());
-
-            // UIManager.OpenWindow(typeof(UIMain));
-            // UIManager.OpenWindow(typeof(UIAdjustNumber));
         }
 
         private readonly UnicornMain _unicornMain = UnicornMain.Instance;
