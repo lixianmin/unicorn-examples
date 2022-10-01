@@ -7,7 +7,9 @@ Copyright (C) - All Rights Reserved
 *********************************************************************/
 
 using System.Collections;
+using Client.UI;
 using Unicorn;
+using Unicorn.UI;
 using UnityEngine;
 
 namespace Client
@@ -26,8 +28,8 @@ namespace Client
 
             yield return StartCoroutine(_metadataManager.CoLoadMetadata());
             
-            // UIManager.OpenWindow(typeof(UIMain));
-            // UIManager.OpenWindow(typeof(UIAdjustNumber));
+            // 加载并打开ui主界面
+            UIManager.OpenWindow(typeof(UIMain));
         }
 
         private void Update()
