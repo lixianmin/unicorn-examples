@@ -479,6 +479,7 @@ GameObject:
   - component: {fileID: 9126878437446782976}
   - component: {fileID: 9126878437446782983}
   - component: {fileID: 6525749516085546605}
+  - component: {fileID: 2057759603875108081}
   m_Layer: 5
   m_Name: uibag
   m_TagString: Untagged
@@ -585,15 +586,25 @@ MonoBehaviour:
     type: UIButton
     target: {fileID: 7047392735580501323}
     userdata: 
-  openWindowScript: {fileID: 0}
-  onOpenWindowFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  closeWindowScript: {fileID: 0}
-  onCloseWindowFinished:
-    m_PersistentCalls:
-      m_Calls: []
+  openWindowAnimation: {fileID: 2057759603875108081}
+  closeWindowAnimation: {fileID: 0}
   labels: []
+--- !u!114 &2057759603875108081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104041933228614745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fa76a0b898b4e24a9281aa36de8734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openClose: 0
+  rectTransform: {fileID: 3282334144702109819}
+  fadeTime: 2
+  easeType: 25
 --- !u!1 &8187923240231588057
 GameObject:
   m_ObjectHideFlags: 0

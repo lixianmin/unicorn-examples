@@ -601,14 +601,8 @@ MonoBehaviour:
     type: UIButton
     target: {fileID: 0}
     userdata: 
-  openWindowScript: {fileID: 0}
-  onOpenWindowFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  closeWindowScript: {fileID: 0}
-  onCloseWindowFinished:
-    m_PersistentCalls:
-      m_Calls: []
+  openWindowAnimation: {fileID: 0}
+  closeWindowAnimation: {fileID: 0}
   labels: []
 --- !u!1 &9126878438605369301
 GameObject:
