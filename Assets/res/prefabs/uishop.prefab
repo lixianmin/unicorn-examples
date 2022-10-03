@@ -491,6 +491,9 @@ GameObject:
   - component: {fileID: 9126878437446782976}
   - component: {fileID: 9126878437446782983}
   - component: {fileID: 2718477389851339601}
+  - component: {fileID: 6201808744351120491}
+  - component: {fileID: 773899265978726012}
+  - component: {fileID: 4150272048346436211}
   m_Layer: 5
   m_Name: uishop
   m_TagString: Untagged
@@ -601,9 +604,51 @@ MonoBehaviour:
     type: UIButton
     target: {fileID: 0}
     userdata: 
-  openWindowAnimation: {fileID: 0}
-  closeWindowAnimation: {fileID: 0}
+  openWindowAnimation: {fileID: 773899265978726012}
+  closeWindowAnimation: {fileID: 4150272048346436211}
   labels: []
+--- !u!225 &6201808744351120491
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104041933228614745}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &773899265978726012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104041933228614745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6604fb7be5d499eb86f68053955e34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 6201808744351120491}
+  duration: 1
+  targetAlpha: 1
+--- !u!114 &4150272048346436211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104041933228614745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6604fb7be5d499eb86f68053955e34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 6201808744351120491}
+  duration: 1
+  targetAlpha: 0
 --- !u!1 &9126878438605369301
 GameObject:
   m_ObjectHideFlags: 0

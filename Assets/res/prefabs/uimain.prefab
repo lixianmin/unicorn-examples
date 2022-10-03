@@ -337,6 +337,10 @@ MonoBehaviour:
     type: UIButton
     target: {fileID: 8286354841289074107}
     userdata: 
+  - name: text_toggle_shop
+    type: UIText
+    target: {fileID: 8895789453150160981}
+    userdata: 
   - name: btn_collect_garbage
     type: UIButton
     target: {fileID: 6463591181272788730}
@@ -356,7 +360,7 @@ GameObject:
   - component: {fileID: 2902971962268288315}
   - component: {fileID: 8895789453150160981}
   m_Layer: 5
-  m_Name: text_open_shop
+  m_Name: text_toggle_shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

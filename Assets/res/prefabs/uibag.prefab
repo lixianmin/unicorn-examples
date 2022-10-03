@@ -604,8 +604,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 3282334144702109819}
   duration: 1
-  endPosition: {x: 0, y: 100}
-  easeType: 30
+  targetPosition: {x: 0, y: 100}
+  ease: 30
 --- !u!114 &367352442961300617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,8 +620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 3282334144702109819}
   duration: 1
-  endPosition: {x: 0, y: 1100}
-  easeType: 29
+  targetPosition: {x: 0, y: 1100}
+  ease: 29
 --- !u!1 &8187923240231588057
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ namespace Client.UI
         private readonly UIWidget<UIText> _textToggleBag = new( "text_toggle_bag");
         
         private readonly UIWidget<UIButton> _btnOpenShop = new( "btn_open_shop");
+        private readonly UIWidget<UIText> _textToggleShop = new( "text_toggle_shop");
+
         private readonly UIWidget<UIButton> _btnCollectGarbage = new( "btn_collect_garbage");
 
         public override void OnLoaded()
@@ -49,7 +51,18 @@ namespace Client.UI
         
         private void OnClickOpenShop()
         {
-            UIManager.OpenWindow(typeof(UIShop));
+            if (!_isShopOpened)
+            {
+                UIManager.OpenWindow(typeof(UIShop));
+                _textToggleShop.UI.text = "close shop";
+            }
+            else
+            {
+                UIManager.CloseWindow(typeof(UIShop));
+                _textToggleShop.UI.text = "open shop";
+            }
+
+            _isShopOpened = !_isShopOpened;
         }
         
         private void OnClickBtnCollectGarbage()
@@ -63,5 +76,6 @@ namespace Client.UI
         }
 
         private bool _isBagOpened;
+        private bool _isShopOpened;
     }
 }

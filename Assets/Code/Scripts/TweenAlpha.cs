@@ -1,4 +1,3 @@
-
 /********************************************************************
 created:    2022-10-03
 author:     lixianmin
@@ -13,24 +12,20 @@ using UnityEngine;
 
 namespace Scripts
 {
-    public class TweenAnchorPos : UIWindowAnimation
+    public class TweenAlpha : UIWindowAnimation
     {
         private void Start()
         {
-            rectTransform.DOAnchorPos(targetPosition, duration).SetEase(ease).OnComplete(() =>
+            canvasGroup.DOFade(targetAlpha, duration).OnComplete(() =>
             {
-                // Console.WriteLine(rectTransform.anchoredPosition); // anchoredPosition跟Debug模式下看到的是一样的
-                // Console.WriteLine("animation done");
                 OnAnimationComplete?.Invoke();
             });
         }
         
-        public RectTransform rectTransform;
+        public CanvasGroup canvasGroup;
         public float duration = 1.0f;
-        
-        public Vector2 targetPosition;
-        public Ease ease = Ease.InOutFlash;
-        
+        public float targetAlpha;
+
         protected override event Action OnAnimationComplete;
     }
 }
