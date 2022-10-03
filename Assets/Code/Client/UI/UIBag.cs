@@ -60,7 +60,7 @@ namespace Client.UI
         public override void Update()
         {
             var t = GetType();
-            var name = t.Name;
+            // var name = t.Name; // this call has 32B gcalloc
         }
     }
 }

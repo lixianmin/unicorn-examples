@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4452514271791048820}
   - component: {fileID: 5882758517050892228}
   m_Layer: 5
-  m_Name: UIText
+  m_Name: text_toggle_bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,6 +329,10 @@ MonoBehaviour:
     type: UIButton
     target: {fileID: 7754594616207174676}
     userdata: 
+  - name: text_toggle_bag
+    type: UIText
+    target: {fileID: 5882758517050892228}
+    userdata: 
   - name: btn_open_shop
     type: UIButton
     target: {fileID: 8286354841289074107}
@@ -352,7 +356,7 @@ GameObject:
   - component: {fileID: 2902971962268288315}
   - component: {fileID: 8895789453150160981}
   m_Layer: 5
-  m_Name: UIText
+  m_Name: text_open_shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -742,7 +746,7 @@ GameObject:
   - component: {fileID: 4789489999155563935}
   - component: {fileID: 9207806129252008601}
   m_Layer: 5
-  m_Name: UIText
+  m_Name: text_collect_garbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -19,6 +19,8 @@ namespace Client.UI
         }
         
         private readonly UIWidget<UIButton> _btnOpenBag = new( "btn_open_bag");
+        private readonly UIWidget<UIText> _textToggleBag = new( "text_toggle_bag");
+        
         private readonly UIWidget<UIButton> _btnOpenShop = new( "btn_open_shop");
         private readonly UIWidget<UIButton> _btnCollectGarbage = new( "btn_collect_garbage");
 
@@ -31,7 +33,18 @@ namespace Client.UI
         
         private void OnClickOpenBag()
         {
-            UIManager.OpenWindow(typeof(UIBag));
+            if (!_isBagOpened)
+            {
+                UIManager.OpenWindow(typeof(UIBag));
+                _textToggleBag.UI.text = "close bag";
+            }
+            else
+            {
+                UIManager.CloseWindow(typeof(UIBag));
+                _textToggleBag.UI.text = "open bag";
+            }
+
+            _isBagOpened = !_isBagOpened;
         }
         
         private void OnClickOpenShop()
@@ -39,7 +52,6 @@ namespace Client.UI
             UIManager.OpenWindow(typeof(UIShop));
         }
         
-
         private void OnClickBtnCollectGarbage()
         {
             UIManager.CloseWindow(typeof(UIShop));
@@ -49,5 +61,7 @@ namespace Client.UI
             GC.Collect();
             Console.WriteLine("gc done");
         }
+
+        private bool _isBagOpened;
     }
 }
