@@ -15,7 +15,12 @@ namespace Client.UI
         {
             return "Assets/res/prefabs/uishop.prefab";
         }
-        
+
+        public override RenderQueue GetRenderQueue()
+        {
+            return RenderQueue.Background;
+        }
+
         private readonly UIWidget<UIText> _title = new( "shop_title");
         private readonly UIWidget<UIButton> _btnShop = new( "btn_shop");
         

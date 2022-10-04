@@ -19,50 +19,41 @@ namespace Client.UI
         }
         
         private readonly UIWidget<UIButton> _btnOpenBag = new( "btn_open_bag");
-        private readonly UIWidget<UIText> _textToggleBag = new( "text_toggle_bag");
+        private readonly UIWidget<UIButton> _btnCloseBag = new( "btn_close_bag");
         
         private readonly UIWidget<UIButton> _btnOpenShop = new( "btn_open_shop");
-        private readonly UIWidget<UIText> _textToggleShop = new( "text_toggle_shop");
+        private readonly UIWidget<UIButton> _btnCloseShop = new( "btn_close_shop");
 
         private readonly UIWidget<UIButton> _btnCollectGarbage = new( "btn_collect_garbage");
 
         public override void OnLoaded()
         {
             _btnOpenBag.UI.onClick.AddListener(OnClickOpenBag);
+            _btnCloseBag.UI.onClick.AddListener(OnClickCloseBag);
             _btnOpenShop.UI.onClick.AddListener(OnClickOpenShop);
+            _btnCloseShop.UI.onClick.AddListener(OnClickCloseShop);
+            
             _btnCollectGarbage.UI.onClick.AddListener(OnClickBtnCollectGarbage);
         }
         
         private void OnClickOpenBag()
         {
-            if (!_isBagOpened)
-            {
-                UIManager.OpenWindow(typeof(UIBag));
-                _textToggleBag.UI.text = "close bag";
-            }
-            else
-            {
-                UIManager.CloseWindow(typeof(UIBag));
-                _textToggleBag.UI.text = "open bag";
-            }
-
-            _isBagOpened = !_isBagOpened;
+            UIManager.OpenWindow(typeof(UIBag));
+        }
+        
+        private void OnClickCloseBag()
+        {
+            UIManager.CloseWindow(typeof(UIBag));
         }
         
         private void OnClickOpenShop()
         {
-            if (!_isShopOpened)
-            {
-                UIManager.OpenWindow(typeof(UIShop));
-                _textToggleShop.UI.text = "close shop";
-            }
-            else
-            {
-                UIManager.CloseWindow(typeof(UIShop));
-                _textToggleShop.UI.text = "open shop";
-            }
-
-            _isShopOpened = !_isShopOpened;
+            UIManager.OpenWindow(typeof(UIShop));
+        }
+        
+        private void OnClickCloseShop()
+        {
+            UIManager.CloseWindow(typeof(UIShop));
         }
         
         private void OnClickBtnCollectGarbage()
@@ -74,8 +65,5 @@ namespace Client.UI
             GC.Collect();
             Console.WriteLine("gc done");
         }
-
-        private bool _isBagOpened;
-        private bool _isShopOpened;
     }
 }
