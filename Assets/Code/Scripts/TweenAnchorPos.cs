@@ -25,11 +25,12 @@ namespace Scripts
             });
         }
         
-        public RectTransform rectTransform;
-        public float duration = 1.0f;
+        // 为什么不使用public变量? 使用private是为最小化访问权限, 而为了支持序列化就需要补一个SerializeField属性
+        [SerializeField] private RectTransform rectTransform;
+        [SerializeField] private float duration = 1.0f;
         
-        public Vector2 targetPosition;
-        public Ease ease = Ease.InOutFlash;
+        [SerializeField] private Vector2 targetPosition;
+        [SerializeField] private Ease ease = Ease.InOutFlash;
         
         protected override event Action OnAnimationComplete;
     }

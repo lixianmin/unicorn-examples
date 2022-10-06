@@ -22,9 +22,10 @@ namespace Scripts
             });
         }
         
-        public CanvasGroup canvasGroup;
-        public float duration = 1.0f;
-        public float targetAlpha;
+        // 为什么不使用public变量? 使用private是为最小化访问权限, 而为了支持序列化就需要补一个SerializeField属性
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private float duration = 1.0f;
+        [SerializeField] private float targetAlpha;
 
         protected override event Action OnAnimationComplete;
     }
