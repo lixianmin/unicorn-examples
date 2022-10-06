@@ -21,7 +21,7 @@ namespace Client.UI
 
         private readonly UIWidget<UIButton> _btnBag = new(  "btn_bag");
         
-        public override void OnLoaded()
+        protected override void OnLoaded()
         { 
             UIWidget<UIText> title = new( "title", this);
             _btnBag.UI.onClick.AddListener(()=>{
@@ -32,32 +32,32 @@ namespace Client.UI
             Console.WriteLine("bag is OnLoaded");
         }
         
-        public override void OnOpened()
+        protected override void OnOpened()
         {
             Console.WriteLine("bag is OnOpened");
         }
 
-        public override void OnActivated()
+        protected override void OnActivated()
         {
             Console.WriteLine("bag is OnActivated");
         }
 
-        public override void OnDeactivating()
+        protected override void OnDeactivating()
         {
             Console.WriteLine("bag is OnDeactivating");
         }
 
-        public override void OnClosing()
+        protected override void OnClosing()
         {
             Console.WriteLine("bag is OnClosing");
         }
 
-        public override void OnUnloading()
+        protected override void OnUnloading()
         {
             Console.WriteLine("bag is OnUnloading");
         }
 
-        public override void Update()
+        protected override void Update()
         {
             var t = GetType();
             // var name = t.Name; // this call has 32B gcalloc

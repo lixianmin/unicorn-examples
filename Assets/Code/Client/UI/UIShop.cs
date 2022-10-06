@@ -24,13 +24,13 @@ namespace Client.UI
         private readonly UIWidget<UIText> _title = new( "shop_title");
         private readonly UIWidget<UIButton> _btnShop = new( "btn_shop");
 
-        public override void OnLoaded()
+        protected override void OnLoaded()
         {
             _btnShop.UI.onClick.AddListener(_OnClickButtonShop);
             Console.WriteLine("shop is OnLoaded");
         }
         
-        public override void OnUnloading()
+        protected override void OnUnloading()
         {
             _btnShop.UI.onClick.RemoveListener(_OnClickButtonShop);
             Console.WriteLine("shop is OnUnloading");
@@ -41,22 +41,22 @@ namespace Client.UI
             _title.UI.text = "this is shop title";
         }
         
-        public override void OnOpened()
+        protected override void OnOpened()
         {
             Console.WriteLine("shop is OnOpened");
         }
 
-        public override void OnActivated()
+        protected override void OnActivated()
         {
             Console.WriteLine("shop is OnActivated");
         }
 
-        public override void OnDeactivating()
+        protected override void OnDeactivating()
         {
             Console.WriteLine("shop is OnDeactivating");
         }
 
-        public override void OnClosing()
+        protected override void OnClosing()
         {
             Console.WriteLine("shop is OnClosing");
         }

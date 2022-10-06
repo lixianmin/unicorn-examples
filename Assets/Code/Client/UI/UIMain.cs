@@ -28,7 +28,7 @@ namespace Client.UI
         private readonly UIWidget<UIButton> _btnCollectGarbage = new( "btn_collect_garbage");
         private readonly EventListener _listener = new EventListener();
 
-        public override void OnLoaded()
+        protected override void OnLoaded()
         {
             // 统一注册事件
             _listener.AddListener(_btnOpenBag.UI.onClick, OnClickOpenBag);
@@ -38,7 +38,7 @@ namespace Client.UI
             _listener.AddListener(_btnCollectGarbage.UI.onClick, OnClickBtnCollectGarbage);
         }
 
-        public override void OnUnloading()
+        protected override void OnUnloading()
         {
             // 统一移除所有注册的事件
             _listener.RemoveAllListeners();
