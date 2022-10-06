@@ -6,6 +6,7 @@ Copyright (C) - All Rights Reserved
 *********************************************************************/
 
 using System;
+using Unicorn;
 using Unicorn.UI;
 using UnityEngine;
 
@@ -25,17 +26,24 @@ namespace Client.UI
         private readonly UIWidget<UIButton> _btnCloseShop = new( "btn_close_shop");
 
         private readonly UIWidget<UIButton> _btnCollectGarbage = new( "btn_collect_garbage");
+        private readonly EventListener _listener = new EventListener();
 
         public override void OnLoaded()
         {
-            _btnOpenBag.UI.onClick.AddListener(OnClickOpenBag);
-            _btnCloseBag.UI.onClick.AddListener(OnClickCloseBag);
-            _btnOpenShop.UI.onClick.AddListener(OnClickOpenShop);
-            _btnCloseShop.UI.onClick.AddListener(OnClickCloseShop);
-            
-            _btnCollectGarbage.UI.onClick.AddListener(OnClickBtnCollectGarbage);
+            // 统一注册事件
+            _listener.AddListener(_btnOpenBag.UI.onClick, OnClickOpenBag);
+            _listener.AddListener(_btnCloseBag.UI.onClick, OnClickCloseBag);
+            _listener.AddListener(_btnOpenShop.UI.onClick, OnClickOpenShop);
+            _listener.AddListener(_btnCloseShop.UI.onClick, OnClickCloseShop);
+            _listener.AddListener(_btnCollectGarbage.UI.onClick, OnClickBtnCollectGarbage);
         }
-        
+
+        public override void OnUnloading()
+        {
+            // 统一移除所有注册的事件
+            _listener.RemoveAllListeners();
+        }
+
         private void OnClickOpenBag()
         {
             UIManager.OpenWindow(typeof(UIBag));
