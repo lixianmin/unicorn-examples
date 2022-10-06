@@ -18,7 +18,7 @@ namespace Client.UI
 
         public override RenderQueue GetRenderQueue()
         {
-            return RenderQueue.Background;
+            return RenderQueue.Geometry;
         }
 
         private readonly UIWidget<UIText> _title = new( "shop_title");
