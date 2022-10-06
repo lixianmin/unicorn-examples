@@ -18,15 +18,15 @@ MonoBehaviour:
   m_GUID: 56fa8ba8daaf84348b652176f200f43c
   m_SerializeEntries:
   - m_GUID: bf4499fd5bcf94f6d95decb431ae2378
-    m_Address: Assets/res/prefabs/uibag.prefab
+    m_Address: Assets/res/prefabs/ui/uibag.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 2c9bcfe4c959e4697b121048fda358ab
-    m_Address: Assets/res/prefabs/uimain.prefab
+    m_Address: Assets/res/prefabs/ui/uimain.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: fa4d00dc42b0146d3bcc8a999e45e072
-    m_Address: Assets/res/prefabs/uishop.prefab
+    m_Address: Assets/res/prefabs/ui/uishop.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

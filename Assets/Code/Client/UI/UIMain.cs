@@ -16,7 +16,7 @@ namespace Client.UI
     {
         public override string GetResourcePath()
         {
-            return "Assets/res/prefabs/uimain.prefab";
+            return "Assets/res/prefabs/ui/uimain.prefab";
         }
         
         private readonly UIWidget<UIButton> _btnOpenBag = new( "btn_open_bag");

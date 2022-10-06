@@ -13,7 +13,7 @@ namespace Client.UI
     {
         public override string GetResourcePath()
         {
-            return "Assets/res/prefabs/uishop.prefab";
+            return "Assets/res/prefabs/ui/uishop.prefab";
         }
 
         public override RenderQueue GetRenderQueue()

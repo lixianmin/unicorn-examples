@@ -5,9 +5,6 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
-using System;
-using System.Collections.Generic;
-using Unicorn;
 using Unicorn.UI;
 
 namespace Client.UI
@@ -16,7 +13,7 @@ namespace Client.UI
     {
         public override string GetResourcePath()
         {
-            return "Assets/res/prefabs/uibag.prefab";
+            return "Assets/res/prefabs/ui/uibag.prefab";
         }
 
         private readonly UIWidget<UIButton> _btnBag = new(  "btn_bag");
