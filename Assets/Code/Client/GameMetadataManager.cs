@@ -8,6 +8,7 @@ Copyright (C) - All Rights Reserved
 
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using Unicorn;
 
 namespace Client
@@ -19,7 +20,7 @@ namespace Client
             Instance = this;
         }
 
-        internal void LoadMetadata()
+        internal async Task LoadMetadata()
         {
             if (IsXmlMetadata)
             {
@@ -29,20 +30,19 @@ namespace Client
             {
                 // 加载原始的metadata数据
                 var rawPath = PathTools.GetFullPath("metadata.raw");
-                // rawStream不能使用using销毁，会被记录到LoadAid对象中
-                var rawStream = File.OpenRead(rawPath);
 
                 try
                 {
+                    // rawStream不能使用using销毁，因为会被记录到LoadAid对象中
+                    var rawStream = await LoadFileAsync(rawPath);
                     LoadRawStream(rawStream);
                 }
                 catch (Exception ex)
                 {
-                    Console.Error.WriteLine("[CoLoadMetadata()] load metadata failed, rawPath={0}, ex={1}", rawPath,
-                        ex.ToString());
+                    Console.Error.WriteLine($"[CoLoadMetadata()] load metadata failed, rawPath={rawPath}, ex={ex}");
                 }
             }
-
+            
             {
                 // 加载增量导出的metadata数据
                 var incrementPath = PathTools.GetFullPath("metadata@.raw");
@@ -50,19 +50,16 @@ namespace Client
                 {
                     try
                     {
-                        var bytes = File.ReadAllBytes(incrementPath);
-                        var stream = new MemoryStream(bytes);
+                        var stream = await LoadFileAsync(incrementPath);
                         LoadIncreamentStream(stream);
                     }
                     catch (Exception ex)
                     {
-                        Console.Error.WriteLine(
-                            "[CoLoadMetadata()] load increment metadata failed, incrementPath={0}, ex={1}",
-                            incrementPath, ex.ToString());
+                        Console.Error.WriteLine($"[CoLoadMetadata()] load increment metadata failed, incrementPath={incrementPath}, ex={ex}");
                     }
                 }
             }
-
+            
             {
                 // 加载locale相关数据
                 var localePath = PathTools.GetFullPath("local.zh_cn.raw");
@@ -70,20 +67,25 @@ namespace Client
                 {
                     try
                     {
-                        var bytes = File.ReadAllBytes(localePath);
-                        var stream = new MemoryStream(bytes);
+                        var stream = await LoadFileAsync(localePath);
                         LoadLocaleTextStream(stream);
                     }
                     catch (Exception ex)
                     {
-                        Console.Error.WriteLine("[CoLoadMetadata()] load locale text failed, localePath={0}, ex={1}",
-                            localePath, ex.ToString());
+                        Console.Error.WriteLine($"[CoLoadMetadata()] load locale text failed, localePath={localePath}, ex={ex}");
                     }
                 }
             }
-
+            
             var version = GetMetadataVersion();
             Console.WriteLine("[_CoLoadMetadata()] Metadata Loaded, metadataVersion={0}.", version.ToString());
+        }
+
+        private static Task<Stream> LoadFileAsync(string filePath)
+        {
+            // Task.Run()是使用其它线程读取数据
+            var task = Task.Run<Stream>(()=> new MemoryStream(File.ReadAllBytes(filePath)));
+            return task;
         }
     }
 }

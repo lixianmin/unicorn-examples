@@ -18,13 +18,13 @@ namespace Client
     /// </summary>
     public class MbGame : MonoBehaviour
     {
-        private void Start()
+        private async void Start()
         {
             // 避免Game对象在场景切换的时候被干掉
             GameObject.DontDestroyOnLoad(gameObject);
             _unicornMain.Init();
 
-            _metadataManager.LoadMetadata();
+            await _metadataManager.LoadMetadata();
 
             // 加载并打开ui主界面
             UIManager.OpenWindow(typeof(UIMain));
