@@ -18,6 +18,9 @@ namespace Client
     /// </summary>
     public class MbGame : MonoBehaviour
     {
+        /// <summary>
+        /// Start()方法除了可以是Coroutine，也可以是async方法(在main thread中的执行). 注：任何情况下都不推荐使用coroutine
+        /// </summary>
         private async void Start()
         {
             // 避免Game对象在场景切换的时候被干掉
