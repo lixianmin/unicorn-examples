@@ -7,7 +7,6 @@ Copyright (C) - All Rights Reserved
 *********************************************************************/
 
 using System;
-using System.Collections;
 using System.IO;
 using Unicorn;
 
@@ -20,17 +19,18 @@ namespace Client
             Instance = this;
         }
 
-        internal IEnumerator CoLoadMetadata()
+        internal void LoadMetadata()
         {
             if (IsXmlMetadata)
             {
-                yield break;
+                return;
             }
-
+            
             {
                 // 加载原始的metadata数据
                 var rawPath = PathTools.GetFullPath("metadata.raw");
-                using var rawStream = File.OpenRead(rawPath);
+                // rawStream不能使用using销毁，会被记录到LoadAid对象中
+                var rawStream = File.OpenRead(rawPath);
 
                 try
                 {

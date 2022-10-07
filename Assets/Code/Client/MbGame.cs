@@ -1,4 +1,3 @@
-
 /********************************************************************
 created:    2022-09-08
 author:     lixianmin
@@ -6,7 +5,6 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
-using System.Collections;
 using Client.UI;
 using Unicorn;
 using Unicorn.UI;
@@ -18,16 +16,16 @@ namespace Client
     /// MbGame是项目入口, 通常不允许在client项目中建立其它的MonoBehaviour脚本, 原因是逻辑上不同对象的Update()方法通常有先后顺序要求, 
     /// 如果使用不同的MonoBehaviour脚本的话,这个顺序将难以控制
     /// </summary>
-    public class MbGame: MonoBehaviour
+    public class MbGame : MonoBehaviour
     {
-        private IEnumerator Start()
+        private void Start()
         {
             // 避免Game对象在场景切换的时候被干掉
             GameObject.DontDestroyOnLoad(gameObject);
             _unicornMain.Init();
 
-            yield return StartCoroutine(_metadataManager.CoLoadMetadata());
-            
+            _metadataManager.LoadMetadata();
+
             // 加载并打开ui主界面
             UIManager.OpenWindow(typeof(UIMain));
         }
