@@ -27,8 +27,9 @@ namespace Client
         /// 注意：async/await目前（2022-10-09）在WebGL中无法正确支持
         /// 
         /// 参考：(【Unity】协程的火辣姐妹-- 异步async await](https://www.bilibili.com/video/BV1sT4y1o7Dz)
-        /// 参考： https://github.com/Cysharp/UniTask 
+        /// 参考：https://github.com/Cysharp/UniTask 
         /// 参考：https://forum.unity.com/threads/async-await-and-webgl-builds.472994/page-2
+        /// 参考：https://forum.unity.com/threads/c-async-await-can-totally-replace-coroutine.1026571/
         /// </summary>
         private async void Start()
         {
