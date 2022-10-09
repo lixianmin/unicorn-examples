@@ -13,13 +13,22 @@ using UnityEngine;
 namespace Client
 {
     /// <summary>
-    /// MbGame是项目入口, 通常不允许在client项目中建立其它的MonoBehaviour脚本, 原因是逻辑上不同对象的Update()方法通常有先后顺序要求, 
-    /// 如果使用不同的MonoBehaviour脚本的话,这个顺序将难以控制
+    /// MbGame是项目入口, 不允许在client项目中建立其它的MonoBehaviour脚本, 原因是逻辑上不同对象的Update()方法通常有先后顺序要求, 
+    /// 而如果使用不同的MonoBehaviour脚本的话,这个顺序将难以控制
     /// </summary>
     public class MbGame : MonoBehaviour
     {
         /// <summary>
-        /// Start()方法除了可以是Coroutine，也可以是async方法(在main thread中的执行). 注：任何情况下都不推荐使用coroutine
+        /// Start()方法除了可以是Coroutine，也可以是async方法(在main thread中的执行).
+        ///
+        /// 因为Coroutine强依赖于MonoBehaviour，如果MonoBehaviour被disable，则Coroutine执行流程中间，因此不推荐使用Coroutine. 
+        /// 多数情况可以使用自组织的Update()方法代替，如果遇到Delay(5s)之类的特殊场景，可以考虑使用async/await或Unicorn.CoroutineManager
+        ///
+        /// 注意：async/await目前（2022-10-09）在WebGL中无法正确支持
+        /// 
+        /// 参考：(【Unity】协程的火辣姐妹-- 异步async await](https://www.bilibili.com/video/BV1sT4y1o7Dz)
+        /// 参考： https://github.com/Cysharp/UniTask 
+        /// 参考：https://forum.unity.com/threads/async-await-and-webgl-builds.472994/page-2
         /// </summary>
         private async void Start()
         {
