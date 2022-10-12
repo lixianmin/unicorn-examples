@@ -6,6 +6,7 @@ Copyright (C) - All Rights Reserved
 *********************************************************************/
 
 using Client.UI;
+using Client.Web;
 using Unicorn;
 using Unicorn.UI;
 using UnityEngine;
@@ -40,7 +41,7 @@ namespace Client
             await _metadataManager.LoadMetadata();
 
             // 加载并打开ui主界面
-            UIManager.OpenWindow(typeof(UIMain));
+            UIManager.Instance.OpenWindow(typeof(UIMain));
         }
 
         private void Update()
@@ -53,5 +54,6 @@ namespace Client
         private readonly UnicornMain _unicornMain = UnicornMain.Instance;
         private readonly Game _game = new();
         private readonly GameMetadataManager _metadataManager = new();
+        private readonly GameWebManager _webManger = new();
     }
 }

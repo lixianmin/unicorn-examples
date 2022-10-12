@@ -46,28 +46,28 @@ namespace Client.UI
 
         private void OnClickOpenBag()
         {
-            UIManager.OpenWindow(typeof(UIBag));
+            UIManager.Instance.OpenWindow(typeof(UIBag));
         }
         
         private void OnClickCloseBag()
         {
-            UIManager.CloseWindow(typeof(UIBag));
+            UIManager.Instance.CloseWindow(typeof(UIBag));
         }
         
         private void OnClickOpenShop()
         {
-            UIManager.OpenWindow(typeof(UIShop));
+            UIManager.Instance.OpenWindow(typeof(UIShop));
         }
         
         private void OnClickCloseShop()
         {
-            UIManager.CloseWindow(typeof(UIShop));
+            UIManager.Instance.CloseWindow(typeof(UIShop));
         }
         
         private void OnClickBtnCollectGarbage()
         {
-            UIManager.CloseWindow(typeof(UIShop));
-            UIManager.CloseWindow(typeof(UIBag));
+            UIManager.Instance.CloseWindow(typeof(UIShop));
+            UIManager.Instance.CloseWindow(typeof(UIBag));
             
             Resources.UnloadUnusedAssets();
             GC.Collect();
