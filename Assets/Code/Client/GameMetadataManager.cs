@@ -55,7 +55,7 @@ namespace Client
             LoadLocaleTextStream(tasks[2].Result); // 加载locale相关数据
             
             var version = GetMetadataVersion();
-            Console.WriteLine("[_CoLoadMetadata()] Metadata Loaded, metadataVersion={0}.", version.ToString());
+            Console.WriteLine("[LoadMetadata()] Metadata Loaded, metadataVersion={0}.", version.ToString());
         }
 
         private static Task<Stream> LoadFileAsync(string localPath)
