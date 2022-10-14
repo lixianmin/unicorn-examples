@@ -11,6 +11,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Metadata;
 using Unicorn;
+using UnityEngine;
 
 namespace Client
 {
@@ -39,65 +40,48 @@ namespace Client
             {
                 return;
             }
-            
-            {
-                // 加载原始的metadata数据
-                var rawPath = PathTools.GetFullPath("metadata.raw");
 
-                try
-                {
-                    // rawStream不能使用using销毁，因为会被记录到LoadAid对象中
-                    var rawStream = await LoadFileAsync(rawPath);
-                    LoadRawStream(rawStream);
-                }
-                catch (Exception ex)
-                {
-                    Console.Error.WriteLine($"[CoLoadMetadata()] load metadata failed, rawPath={rawPath}, ex={ex}");
-                }
-            }
-            
+            var tasks = new[]
             {
-                // 加载增量导出的metadata数据
-                var incrementPath = PathTools.GetFullPath("metadata@.raw");
-                if (File.Exists(incrementPath))
-                {
-                    try
-                    {
-                        var stream = await LoadFileAsync(incrementPath);
-                        LoadIncreamentStream(stream);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.Error.WriteLine($"[CoLoadMetadata()] load increment metadata failed, incrementPath={incrementPath}, ex={ex}");
-                    }
-                }
-            }
+                LoadFileAsync("metadata.raw"),
+                LoadFileAsync("metadata@.raw"),
+                LoadFileAsync("locale.zh_cn.raw")
+            };
             
-            {
-                // 加载locale相关数据
-                var localePath = PathTools.GetFullPath("locale.zh_cn.raw");
-                if (File.Exists(localePath))
-                {
-                    try
-                    {
-                        var stream = await LoadFileAsync(localePath);
-                        LoadLocaleTextStream(stream);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.Error.WriteLine($"[CoLoadMetadata()] load locale text failed, localePath={localePath}, ex={ex}");
-                    }
-                }
-            }
+            await Task.WhenAll(tasks);
+            
+            LoadRawStream(tasks[0].Result); // 加载原始的metadata数据
+            LoadIncreamentStream(tasks[1].Result); // 加载增量导出的metadata数据
+            LoadLocaleTextStream(tasks[2].Result); // 加载locale相关数据
             
             var version = GetMetadataVersion();
             Console.WriteLine("[_CoLoadMetadata()] Metadata Loaded, metadataVersion={0}.", version.ToString());
         }
 
-        private static Task<Stream> LoadFileAsync(string filePath)
+        private static Task<Stream> LoadFileAsync(string localPath)
         {
+            var fullPath = PathTools.GetExportPath(localPath);
             // Task.Run()是使用其它线程读取数据
-            var task = Task.Run<Stream>(()=> new MemoryStream(File.ReadAllBytes(filePath)));
+            var task = Task.Run<Stream>(()=>
+            {
+                if (File.Exists(fullPath))
+                {
+                    try
+                    {
+                        var buffer = File.ReadAllBytes(fullPath);
+                        return new MemoryStream(buffer);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"[LoadFileAsync()] load file failed, fullPath={fullPath}, ex={ex}");
+                    }
+                }
+                else
+                {
+                    Debug.LogError($"[LoadFileAsync()] file does not exist, fullPath={fullPath}");
+                }
+                return null;
+            });
             return task;
         }
         
