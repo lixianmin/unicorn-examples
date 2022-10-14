@@ -5,6 +5,7 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
+using Metadata;
 using Unicorn.UI;
 
 namespace Client.UI
@@ -28,6 +29,13 @@ namespace Client.UI
         {
             _btnShop.UI.onClick.AddListener(_OnClickButtonShop);
             Console.WriteLine("shop is OnLoaded");
+
+            var manager = GameMetadataManager.Instance;
+            var template = manager.GetTemplate<WeaponTemplate>(2);
+            if (template != null)
+            {
+                Console.WriteLine(template.name);
+            }
         }
         
         protected override void OnUnloading()

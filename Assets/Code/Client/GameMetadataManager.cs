@@ -9,19 +9,26 @@ Copyright (C) - All Rights Reserved
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Metadata;
 using Unicorn;
 
 namespace Client
 {
-    class GameMetadataManager : Metadata.MetadataManager
+    class GameMetadataManager : MetadataManager
     {
         internal GameMetadataManager()
         {
-            Instance = this;
+            MetadataManager.Instance = this;
+        }
+
+        public T GetTemplate<T>(int idTemplate) where T : Template
+        {
+            return base.GetTemplate(typeof(T), idTemplate) as T;
         }
 
         internal async Task LoadMetadata()
         {
+            // todo 现在xml的格式支持还未加进来
             if (IsXmlMetadata)
             {
                 return;
@@ -87,5 +94,7 @@ namespace Client
             var task = Task.Run<Stream>(()=> new MemoryStream(File.ReadAllBytes(filePath)));
             return task;
         }
+        
+        public new static GameMetadataManager Instance => MetadataManager.Instance as GameMetadataManager;
     }
 }

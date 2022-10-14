@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Templates>
+    <Template xsi:type="WeaponTemplate">
+      <id>1</id>
+      <stats>
+        <Stat>
+          <key>1</key>
+          <val>1</val>
+        </Stat>
+        <Stat>
+          <key>2</key>
+          <val>2</val>
+        </Stat>
+      </stats>
+      <name guid="guid-01234">熊猫</name>
+      <gfxPaths>
+          <string>Assets/res/gfx/test1</string>
+          <string>Assets/res/gfx/test2</string>
+      </gfxPaths>
+      <price>123</price>
+      <weight>1.0</weight>
+    </Template>
+    <Template xsi:type="WeaponTemplate">
+      <id>2</id>
+      <stats>
+        <Stat>
+          <key>3</key>
+          <val>3</val>
+        </Stat>
+        <Stat>
+          <key>4</key>
+          <val>4</val>
+        </Stat>
+      </stats>
+      <name guid="guid-56789">宠物</name>
+      <gfxPaths>
+          <string>Assets/res/gfx/test3</string>
+          <string>Assets/res/gfx/test4</string>
+      </gfxPaths>
+      <price>123</price>
+      <weight>1.0</weight>
+    </Template>
+  </Templates>
+  <Configs />
+</XmlMetadata>
