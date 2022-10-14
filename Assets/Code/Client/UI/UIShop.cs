@@ -34,7 +34,7 @@ namespace Client.UI
             var template = manager.GetTemplate<WeaponTemplate>(2);
             if (template != null)
             {
-                Console.WriteLine(template.name);
+                Console.WriteLine($"name={template.name}, price={(int) template.price}");
             }
         }
         

@@ -12,10 +12,8 @@ namespace Metadata
         [UnityEngine.Scripting.Preserve]
         private static Hashtable _GetLookupTableByName ()
         {
-            return new Hashtable(4)
+            return new Hashtable(2)
             {
-                { "Metadata.PetEatFishTemplate", new MetaCreator(()=> new Metadata.PetEatFishTemplate()) },
-                { "Metadata.PetEatFishTemplate+StatUp", new MetaCreator(()=> new Metadata.PetEatFishTemplate.StatUp()) },
                 { "Metadata.WeaponTemplate", new MetaCreator(()=> new Metadata.WeaponTemplate()) },
                 { "Metadata.WeaponTemplate+Stat", new MetaCreator(()=> new Metadata.WeaponTemplate.Stat()) },
             };

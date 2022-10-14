@@ -38,7 +38,7 @@
           <string>Assets/res/gfx/test3</string>
           <string>Assets/res/gfx/test4</string>
       </gfxPaths>
-      <price>123</price>
+      <price>456</price>
       <weight>1.0</weight>
     </Template>
   </Templates>

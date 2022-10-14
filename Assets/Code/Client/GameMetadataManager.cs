@@ -26,8 +26,14 @@ namespace Client
             return base.GetTemplate(typeof(T), idTemplate) as T;
         }
 
+        public T GetConfig<T>() where T : Config
+        {
+            return base.GetConfig(typeof(T)) as T;
+        }
+        
         internal async Task LoadMetadata()
         {
+            // todo prototype editor的显示不全
             // todo 现在xml的格式支持还未加进来
             if (IsXmlMetadata)
             {
@@ -69,7 +75,7 @@ namespace Client
             
             {
                 // 加载locale相关数据
-                var localePath = PathTools.GetFullPath("local.zh_cn.raw");
+                var localePath = PathTools.GetFullPath("locale.zh_cn.raw");
                 if (File.Exists(localePath))
                 {
                     try
