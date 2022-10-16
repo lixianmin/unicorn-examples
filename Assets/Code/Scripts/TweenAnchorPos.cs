@@ -32,6 +32,6 @@ namespace Scripts
         [SerializeField] private Vector2 targetPosition;
         [SerializeField] private Ease ease = Ease.InOutFlash;
         
-        protected override event Action OnAnimationComplete;
+        public override event Action OnAnimationComplete;
     }
 }

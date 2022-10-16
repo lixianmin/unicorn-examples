@@ -27,6 +27,6 @@ namespace Scripts
         [SerializeField] private float duration = 1.0f;
         [SerializeField] private float targetAlpha;
 
-        protected override event Action OnAnimationComplete;
+        public override event Action OnAnimationComplete;
     }
 }
