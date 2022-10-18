@@ -22,10 +22,7 @@ namespace Metadata
             public int key; // 属性类型
             public float val; // 属性值;
         }
-
-        /// <summary>
-        /// todo 本地化的内容，现在还不正确
-        /// </summary>
+        
         public List<Stat> stats = new(); // 支持List，但不支持Dictionary
         public LocaleText name; // 需要本地化的内容，使用LocalText类型
         public string[] gfxPaths; // 支持数组
