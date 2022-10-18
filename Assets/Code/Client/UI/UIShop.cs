@@ -5,7 +5,6 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
-using System.Text;
 using Metadata;
 using Unicorn;
 using Unicorn.UI;
