@@ -73,12 +73,12 @@ namespace Client
                     }
                     catch (Exception ex)
                     {
-                        Debug.LogError($"[LoadFileAsync()] load file failed, fullPath={fullPath}, ex={ex}");
+                        Console.WriteLine($"[LoadFileAsync()] load file failed, fullPath={fullPath}, ex={ex}");
                     }
                 }
                 else
                 {
-                    Debug.LogError($"[LoadFileAsync()] file does not exist, fullPath={fullPath}");
+                    Console.WriteLine($"[LoadFileAsync()] file does not exist, fullPath={fullPath}");
                 }
                 return null;
             });
