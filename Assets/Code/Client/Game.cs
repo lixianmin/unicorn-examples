@@ -5,7 +5,6 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 #pragma warning disable 0436
-using Unicorn.UI;
 using UnityEngine;
 
 namespace Client
