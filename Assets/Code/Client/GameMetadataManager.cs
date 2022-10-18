@@ -11,7 +11,6 @@ using System.IO;
 using System.Threading.Tasks;
 using Metadata;
 using Unicorn;
-using UnityEngine;
 
 namespace Client
 {
