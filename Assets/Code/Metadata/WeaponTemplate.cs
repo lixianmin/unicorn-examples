@@ -12,7 +12,7 @@ namespace Metadata
     /// <summary>
     /// 当同一个类型可能有多个实例的时候，使用Template类型
     /// </summary>
-    public class WeaponTemplate : Template
+    public class WeaponTemplate : StockItemTemplate
     {
         /// <summary>
         /// 支持嵌套类型，需要实现IMetadata这个空接口
@@ -24,7 +24,6 @@ namespace Metadata
         }
         
         public List<Stat> stats = new(); // 支持List，但不支持Dictionary
-        public LocaleText name; // 需要本地化的内容，使用LocalText类型
         public string[] gfxPaths; // 支持数组
         public Int32_t price; // 某些关键的数值类型，为了防止内存修改器，可以使用加密类型
         public Float_t weight; // float对应的加密类型
