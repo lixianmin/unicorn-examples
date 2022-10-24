@@ -5,6 +5,7 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
+using Client.Network;
 using Client.UI;
 using Client.Web;
 using Unicorn;
@@ -39,6 +40,9 @@ namespace Client
             _unicornMain.Init();
 
             await _metadataManager.LoadMetadata();
+
+            // 连接网络，真实项目中应该是点击登录按钮之后
+            NetManager.Instance.Connect();
 
             // 加载并打开ui主界面
             UIManager.Instance.OpenWindow(typeof(UIMain));

@@ -21,6 +21,11 @@ namespace Client
             
         }
 
+        private BagManager()
+        {
+            
+        }
+
         public void AddStock(StockItem stock)
         {
             // 入参一定要检查
