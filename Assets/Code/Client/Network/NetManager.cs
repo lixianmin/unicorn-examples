@@ -26,6 +26,15 @@ namespace Client.Network
             var wallet = HostPlayer.Instance.GetWallet();
             wallet.SetDiamond(56);
             wallet.SetGold(1029);
+
+            // 加载一波玩家的数据到PlayerManager中，这里操作的全是Data层/Model层
+            var playerManager = PlayerManager.Instance;
+            var allPlayerInfos = new PlayerInfo[10];
+            for (int i= 0; i< allPlayerInfos.Length; i++)
+            {
+                var playerInfo = allPlayerInfos[i];
+                playerManager.AddPlayer(playerInfo);
+            }
         }
 
         public static readonly NetManager Instance = new();
