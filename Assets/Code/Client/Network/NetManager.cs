@@ -33,6 +33,7 @@ namespace Client.Network
             for (int i= 0; i< allPlayerInfos.Length; i++)
             {
                 var playerInfo = allPlayerInfos[i];
+                playerInfo.id = i;
                 playerManager.AddPlayer(playerInfo);
             }
         }

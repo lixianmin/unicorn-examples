@@ -50,14 +50,30 @@ namespace Client
 
         private void Update()
         {
+            // 成本帧
             var deltaTime = Time.deltaTime;
-            _unicornMain.Update(deltaTime);
-            _game.Update(deltaTime);
+            _unicornMain.ExpensiveUpdate(deltaTime);
+            _game.ExpensiveUpdate(deltaTime);
+            
+            // 慢速帧
+            var time = Time.time;
+            if (time >= _nextSlowUpdateTime)
+            {
+                var slowDeltaTime = time - _lastSlowUpdateTime;
+                _lastSlowUpdateTime = _nextSlowUpdateTime;
+                _nextSlowUpdateTime = time + 0.1f;
+                
+                _unicornMain.SlowUpdate(slowDeltaTime);
+                _game.SlowUpdate(slowDeltaTime);
+            }
         }
 
         private readonly UnicornMain _unicornMain = UnicornMain.Instance;
         private readonly Game _game = new();
         private readonly GameMetadataManager _metadataManager = new();
         private readonly GameWebManager _webManger = new();
+        
+        private float _lastSlowUpdateTime;
+        private float _nextSlowUpdateTime;
     }
 }

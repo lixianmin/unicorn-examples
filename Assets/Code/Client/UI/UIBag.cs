@@ -54,10 +54,9 @@ namespace Client.UI
             Console.WriteLine("bag is OnUnloading");
         }
 
-        protected override void Update()
+        protected override void SlowUpdate(float deltaTime)
         {
-            var t = GetType();
-            // var name = t.Name; // this call has 32B gcalloc
+            
         }
     }
 }
