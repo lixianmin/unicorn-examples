@@ -7,7 +7,6 @@ Copyright (C) - All Rights Reserved
 
 using Client.Network;
 using Unicorn.Collections;
-using UnityEngine.Networking.Types;
 
 namespace Client
 {
