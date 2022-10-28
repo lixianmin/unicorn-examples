@@ -39,7 +39,7 @@ namespace Client
             GameObject.DontDestroyOnLoad(gameObject);
             _unicornMain.Init();
 
-            await _metadataManager.LoadMetadata();
+            await GameMetadataManager.Instance.LoadMetadata();
 
             // 连接网络，真实项目中应该是点击登录按钮之后
             NetManager.Instance.Connect();
@@ -54,7 +54,7 @@ namespace Client
             var deltaTime = Time.deltaTime;
             _unicornMain.ExpensiveUpdate(deltaTime);
             _game.ExpensiveUpdate(deltaTime);
-            
+
             // 慢速帧
             var time = Time.time;
             if (time >= _nextSlowUpdateTime)
@@ -62,7 +62,7 @@ namespace Client
                 var slowDeltaTime = time - _lastSlowUpdateTime;
                 _lastSlowUpdateTime = _nextSlowUpdateTime;
                 _nextSlowUpdateTime = time + 0.1f;
-                
+
                 _unicornMain.SlowUpdate(slowDeltaTime);
                 _game.SlowUpdate(slowDeltaTime);
             }
@@ -70,8 +70,8 @@ namespace Client
 
         private readonly UnicornMain _unicornMain = UnicornMain.Instance;
         private readonly Game _game = new();
-        private readonly GameMetadataManager _metadataManager = new();
-        private readonly GameWebManager _webManger = new();
+        private readonly GameWebManager _webManager = GameWebManager.Instance;  // 初始化基类中的Instance引用
+        private readonly GameMetadataManager _metadataManager = GameMetadataManager.Instance; // 初始化基类中的Instance引用
         
         private float _lastSlowUpdateTime;
         private float _nextSlowUpdateTime;

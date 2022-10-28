@@ -5,15 +5,20 @@ namespace Client.Web
 {
     public class GameWebManager : WebManager
     {
-        public GameWebManager()
+        static GameWebManager()
         {
-            Instance = this;
         }
-        
+
+        private GameWebManager()
+        {
+        }
+
         public override IWebNode LoadAsset(WebArgument argument, Action<IWebNode> handler)
         {
             var webItem = new WebItem(argument, handler);
             return webItem;
         }
+
+        public new static readonly GameWebManager Instance = new();
     }
 }
