@@ -1,6 +1,6 @@
 #### 1 unicorn-examples
 
-
+> 如果uibag等prefab上的脚本丢失，这是因为Unicorn是先于ugui导入的，解法为：选中Unicorn.dll → 右键Reimport
 
 unicorn代码库使用方法教程，包括：
 
