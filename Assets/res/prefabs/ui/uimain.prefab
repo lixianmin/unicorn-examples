@@ -462,27 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: -2097208404, guid: 4ae6ee79c89b24b0e9592fe831119a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widgetDatas:
-  - name: btn_open_bag
-    type: UIButton
-    target: {fileID: 7754594616207174676}
-    userdata: 
-  - name: text_toggle_bag
-    type: UIText
-    target: {fileID: 5882758517050892228}
-    userdata: 
-  - name: btn_open_shop
-    type: UIButton
-    target: {fileID: 8286354841289074107}
-    userdata: 
-  - name: text_toggle_shop
-    type: UIText
-    target: {fileID: 8895789453150160981}
-    userdata: 
-  - name: btn_collect_garbage
-    type: UIButton
-    target: {fileID: 6463591181272788730}
-    userdata: 
+  widgets: []
   openWindowAnimation: {fileID: 0}
   closeWindowAnimation: {fileID: 0}
   labels: []

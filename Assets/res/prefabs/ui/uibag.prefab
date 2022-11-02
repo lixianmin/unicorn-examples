@@ -678,10 +678,10 @@ MonoBehaviour:
   m_Script: {fileID: -2097208404, guid: 4ae6ee79c89b24b0e9592fe831119a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widgetDatas:
+  widgets:
   - name: btn_bag
     type: UIButton
-    target: {fileID: 0}
+    target: {fileID: 1471711811162881996}
     userdata: 
   openWindowAnimation: {fileID: 9145998850741907122}
   closeWindowAnimation: {fileID: 367352442961300617}

@@ -587,15 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: -2097208404, guid: 4ae6ee79c89b24b0e9592fe831119a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widgetDatas:
-  - name: shop_title
-    type: UIText
-    target: {fileID: 0}
-    userdata: 
-  - name: btn_shop
-    type: UIButton
-    target: {fileID: 0}
-    userdata: 
+  widgets: []
   openWindowAnimation: {fileID: 773899265978726012}
   closeWindowAnimation: {fileID: 4150272048346436211}
   labels: []
