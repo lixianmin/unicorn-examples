@@ -22,13 +22,7 @@ namespace Client.UI
         {
             return RenderQueue.Geometry;
         }
-
-        private readonly UIWidget<UIText> _title = new( "shop_title");
-        private readonly UIWidget<UIButton> _btnFindWeapons = new( "btn_find_weapons");
-
-        private readonly UIWidget<UIText> _textGold = new("text_gold");
-        private readonly UIWidget<UIButton> _btnBuyWeapon = new( "btn_buy_weapon");
-
+        
         protected override void OnLoaded()
         {
             // UI加载之后，先取从model层取数据
@@ -117,5 +111,12 @@ namespace Client.UI
         {
             Console.WriteLine("shop is OnClosing");
         }
+        
+        // 所有成员变量统一扔到class的最后面
+        private readonly UIWidget<UIText> _title = new( "shop_title");
+        private readonly UIWidget<UIButton> _btnFindWeapons = new( "btn_find_weapons");
+
+        private readonly UIWidget<UIText> _textGold = new("text_gold");
+        private readonly UIWidget<UIButton> _btnBuyWeapon = new( "btn_buy_weapon");
     }
 }

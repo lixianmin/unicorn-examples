@@ -6,6 +6,7 @@ Copyright (C) - All Rights Reserved
 *********************************************************************/
 
 using Unicorn.UI;
+using UnityEngine;
 
 namespace Client.UI
 {
@@ -15,8 +16,6 @@ namespace Client.UI
         {
             return "Assets/res/prefabs/ui/uibag.prefab";
         }
-
-        private readonly UIWidget<UIButton> _btnBag = new(  "btn_bag");
         
         protected override void OnLoaded()
         { 
@@ -26,7 +25,7 @@ namespace Client.UI
                 title.UI.text = "hello world";
             });
             
-            Console.WriteLine("bag is OnLoaded");
+            Console.WriteLine("bag is OnLoaded, button position={0}", _btnBagTransform.UI.position);
         }
         
         protected override void OnOpened()
@@ -58,5 +57,10 @@ namespace Client.UI
         {
             
         }
+        
+        // 所有成员变量统一扔到class的最后面
+        private readonly UIWidget<UIButton> _btnBag = new(  "btn_bag");
+        // UIWidget也可以支持Transform，如果需要gameObject请直接使用transform.gameObject即可
+        private readonly UIWidget<Transform> _btnBagTransform = new(  "btn_bag");
     }
 }

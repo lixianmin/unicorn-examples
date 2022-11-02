@@ -19,15 +19,6 @@ namespace Client.UI
             return "Assets/res/prefabs/ui/uimain.prefab";
         }
         
-        private readonly UIWidget<UIButton> _btnOpenBag = new( "btn_open_bag");
-        private readonly UIWidget<UIButton> _btnCloseBag = new( "btn_close_bag");
-        
-        private readonly UIWidget<UIButton> _btnOpenShop = new( "btn_open_shop");
-        private readonly UIWidget<UIButton> _btnCloseShop = new( "btn_close_shop");
-
-        private readonly UIWidget<UIButton> _btnCollectGarbage = new( "btn_collect_garbage");
-        private readonly EventListener _listener = new EventListener();
-
         protected override void OnLoaded()
         {
             // 统一注册事件
@@ -73,5 +64,15 @@ namespace Client.UI
             GC.Collect();
             Console.WriteLine("gc done");
         }
+        
+        // 所有成员变量统一扔到class的最后面
+        private readonly UIWidget<UIButton> _btnOpenBag = new( "btn_open_bag");
+        private readonly UIWidget<UIButton> _btnCloseBag = new( "btn_close_bag");
+        
+        private readonly UIWidget<UIButton> _btnOpenShop = new( "btn_open_shop");
+        private readonly UIWidget<UIButton> _btnCloseShop = new( "btn_close_shop");
+
+        private readonly UIWidget<UIButton> _btnCollectGarbage = new( "btn_collect_garbage");
+        private readonly EventListener _listener = new EventListener();
     }
 }
