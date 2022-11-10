@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlLocaleTextTranslator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <items>
+<!--    <LocaleText guid="guid-01234">panda</LocaleText>-->
+    <LocaleText guid="guid-56789">pet</LocaleText>
+  </items>
+</XmlLocaleTextTranslator>

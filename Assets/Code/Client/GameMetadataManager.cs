@@ -49,7 +49,7 @@ namespace Client
             {
                 LoadFileAsync("Assets/res/metadata/metadata.bytes", stream => LoadRawStream(stream)),
                 LoadFileAsync("Assets/res/metadata/metadata@.bytes", LoadIncreamentStream),
-                LoadFileAsync("Assets/res/metadata/locale.zh_cn.bytes", LoadLocaleTextStream)
+                LoadFileAsync("Assets/res/metadata/locale.en.bytes", LoadLocaleTextStream)
             };
 
             for (int i = 0; i < nodes.Length;)

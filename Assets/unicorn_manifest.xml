@@ -5,7 +5,7 @@
     <bakeCollisionMeshes>true</bakeCollisionMeshes>
   </editorSettings>
   <relativePaths>
-    <editorResourceRoot />
+    <editorResourceRoot>resource</editorResourceRoot>
     <xmlMetadataRoot>resource/metadata</xmlMetadataRoot>
     <exportMetadataRoot>Assets/res/metadata</exportMetadataRoot>
   </relativePaths>
