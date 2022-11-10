@@ -5,6 +5,7 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
+using System.Collections;
 using Client.Network;
 using Client.UI;
 using Client.Web;
@@ -33,13 +34,13 @@ namespace Client
         /// 参考：https://forum.unity.com/threads/async-await-and-webgl-builds.472994/page-2
         /// 参考：https://forum.unity.com/threads/c-async-await-can-totally-replace-coroutine.1026571/
         /// </summary>
-        private async void Start()
+        private IEnumerator Start()
         {
             // 避免Game对象在场景切换的时候被干掉
             GameObject.DontDestroyOnLoad(gameObject);
             _unicornMain.Init();
 
-            await GameMetadataManager.Instance.LoadMetadata();
+            yield return GameMetadataManager.Instance.LoadMetadata();
 
             // 连接网络，真实项目中应该是点击登录按钮之后
             NetManager.Instance.Connect();

@@ -29,6 +29,18 @@ MonoBehaviour:
     m_Address: Assets/res/prefabs/ui/uishop.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 439d86fd92adf46398579256acc68c01
+    m_Address: Assets/res/metadata/metadata@.bytes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 19787aebf4f0e45abaf58652604eba2b
+    m_Address: Assets/res/metadata/metadata.bytes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e335811c6f6c24f6d969f490c428638f
+    m_Address: Assets/res/metadata/locale.zh_cn.bytes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 95203ff044e1247fc8054c921b69753e, type: 2}
   m_SchemaSet:
