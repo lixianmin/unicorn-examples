@@ -19,7 +19,7 @@ unicorn代码库使用方法教程，包括：
    2. Projection: 
       1. Projection: Orthographic
       2. Size: 5
-      3. Clipipling Planes: -100 ~ 100
+      3. Clipipling Planes: [-100, 100]
    3. Rendering:
       1. Clear Depth: ✓
       2. Culling Mask: UI
@@ -28,24 +28,24 @@ unicorn代码库使用方法教程，包括：
    2. Rendering:
       1. Culling Mask: 把UI剔除
    3. Stack: 添加UICamera
-3. 在场景中创建一个名为UIRoot的Canvas节点：
-   1. Render Mode：Screen Space - Camera
-   2. Render Camera：UICamera
-
-
-
-然后，通过`UIManager.Instance.OpenWindow(typeof(UIBag))`打开的界面，会在UIRoot节点下找到
+3. 在场景中创建一个名为UIRoot的空节点，然后通过`UIManager.Instance.OpenWindow(typeof(UIBag))`打开的界面，会在UIRoot节点下找到
 
 
 
 ##### 2 如何制作3D的UI
 
-3D的UI可以跟2D的UI一样通过addressable动态加载到场景中，但也可以在加载场景时随场景预加载，这样就不需要动态加载了
+3D的UI可以跟2D的UI一样通过addressable动态加载到场景中，但也可以随场景预加载，这样就不需要动态加载了。
+
+
 
 制作流程为：
 
-1. 3D的UI不需要独立的UICamera，直接在Main Camera中观察即可
-2. UIRoot不需要
+1. 按2D的UI的制作流程，在场景中设置Main Camera, UICamera与空的UIRoot节点
+2. 然后在UIRoot下创建Canvas节点，假定命名为uishop
+   1. Canvas: 修改Render Mode为WorldSpace
+   2. RectTransform: 修改Scale为0.01；它的PosX, PosY, PosZ现在代表在场景中的位置，可以重置为(0, 0, 0)
+
+3. Canvas下面可以加一个Panel节点，这样看起来像是有一个背景面板，但Panel节点并不是必须的
 
 
 
