@@ -12,7 +12,7 @@ namespace Client.UI
 {
     public class UIBag: UIWindowBase
     {
-        public override string GetResourcePath()
+        public override string GetAssetPath()
         {
             return "Assets/res/prefabs/ui/uibag.prefab";
         }

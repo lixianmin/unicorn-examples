@@ -15,7 +15,7 @@ namespace Scripts
 {
     public class TweenAnchorPos : UIWindowAnimation
     {
-        private void Start()
+        private void OnEnable()
         {
             rectTransform.DOAnchorPos(targetPosition, duration).SetEase(ease).OnComplete(() =>
             {

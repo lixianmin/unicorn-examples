@@ -14,8 +14,13 @@ namespace Scripts
 {
     public class TweenAlpha : UIWindowAnimation
     {
-        private void Start()
+        private void OnEnable()
         {
+            if (canvasGroup == null)
+            {
+                Console.Error.WriteLine("canvasGroup is null");
+            }
+            
             canvasGroup.DOFade(targetAlpha, duration).OnComplete(() =>
             {
                 OnAnimationComplete?.Invoke();

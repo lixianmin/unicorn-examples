@@ -25,10 +25,6 @@ MonoBehaviour:
     m_Address: Assets/res/prefabs/ui/uimain.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: fa4d00dc42b0146d3bcc8a999e45e072
-    m_Address: Assets/res/prefabs/ui/uishop.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 439d86fd92adf46398579256acc68c01
     m_Address: Assets/res/metadata/metadata@.bytes
     m_ReadOnly: 0

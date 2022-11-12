@@ -13,9 +13,9 @@ namespace Client.UI
 {
     public class UIShop: UIWindowBase
     {
-        public override string GetResourcePath()
+        public override string GetAssetPath()
         {
-            return "Assets/res/prefabs/ui/uishop.prefab";
+            return "uishop";
         }
 
         public override RenderQueue GetRenderQueue()

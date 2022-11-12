@@ -14,7 +14,7 @@ namespace Client.UI
 {
     public class UIMain : UIWindowBase
     {
-        public override string GetResourcePath()
+        public override string GetAssetPath()
         {
             return "Assets/res/prefabs/ui/uimain.prefab";
         }
