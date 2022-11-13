@@ -68,10 +68,13 @@ UIManager.Instance.CloseWindow(typeof(UIBag));
 
 ##### 3 如何制作3D界面
 
-3D界面与2D界面的制作过程几乎完全一样，唯一的区别是Canvas设置有些不同：
+3D界面与2D界面的制作过程几乎完全一样，有2点区别：
 
-1. 设置Canvas组件的Render Mode为World Space，这是因为界面需要在3D场景中显示
-2. RectTransform：修改Scale到合适大小，我习惯设置为0.01；PosX, PosY, PosZ代表窗体在场景中的位置，可先重置为(0, 0, 0)再调整
+1. Canvas设置：
+   1. Render Mode：设置为World Space，这是因为界面需要在3D场景中显示
+   2. RectTransform：修改Scale到合适大小，我的习惯是0.01；PosX, PosY, PosZ代表窗体在场景中的位置，可先重置为(0, 0, 0)再调
+2. Scene场景的2D模式下**使用Rect Tool代替Move Tool移动**
+   1. 我们通常会使用2D模式添加或修改UI界面中的控件，由于制作的是3D界面，Move Tool很容易把控件移出到panel外面
 
 
 
