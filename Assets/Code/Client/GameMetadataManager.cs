@@ -37,12 +37,12 @@ namespace Client
         internal IEnumerator LoadMetadata()
         {
             // todo prototype editor的显示不全
-            // todo 现在xml的格式支持还未加进来
-            if (IsXmlMetadata)
+            if (Application.isEditor)
             {
+                EnableXmlMetadata();
                 yield break;
             }
-
+            
             var nodes = new[]
             {
                 LoadFileAsync("Assets/res/metadata/metadata.bytes", stream => LoadRawStream(stream)),
