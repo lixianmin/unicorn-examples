@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18030027, g: 0.22574435, b: 0.30695474, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 1114892433}
   - component: {fileID: 1114892432}
   - component: {fileID: 1114892431}
-  - component: {fileID: 1114892430}
+  - component: {fileID: 1114892437}
   m_Layer: 5
   m_Name: uishop
   m_TagString: Untagged
@@ -714,38 +714,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3.52, y: 1.37}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1114892430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114892428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -2097208404, guid: 4ae6ee79c89b24b0e9592fe831119a61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widgets:
-  - name: shop_title
-    type: UIText
-    target: {fileID: 2046732608}
-    userdata: 
-  - name: btn_find_weapons
-    type: UIButton
-    target: {fileID: 1249319966}
-    userdata: 
-  - name: text_gold
-    type: UIText
-    target: {fileID: 955565151}
-    userdata: 
-  - name: btn_buy_weapon
-    type: UIButton
-    target: {fileID: 1270960462}
-    userdata: 
-  openWindowAnimation: {fileID: 1114892432}
-  closeWindowAnimation: {fileID: 1114892431}
-  labels: []
 --- !u!114 &1114892431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +721,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114892428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6604fb7be5d499eb86f68053955e34c, type: 3}
   m_Name: 
@@ -769,7 +737,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114892428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6604fb7be5d499eb86f68053955e34c, type: 3}
   m_Name: 
@@ -851,6 +819,38 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1114892437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114892428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2097208404, guid: 4ae6ee79c89b24b0e9592fe831119a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widgets:
+  - name: shop_title
+    type: UIText
+    target: {fileID: 2046732608}
+    userdata: 
+  - name: btn_find_weapons
+    type: UIButton
+    target: {fileID: 1249319966}
+    userdata: 
+  - name: text_gold
+    type: UIText
+    target: {fileID: 955565151}
+    userdata: 
+  - name: btn_buy_weapon
+    type: UIButton
+    target: {fileID: 1270960462}
+    userdata: 
+  openWindowAnimation: {fileID: 1114892432}
+  closeWindowAnimation: {fileID: 1114892431}
+  labels: []
 --- !u!1 &1249319964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1506,7 @@ GameObject:
   - component: {fileID: 1957742658}
   - component: {fileID: 1957742657}
   m_Layer: 5
-  m_Name: UIText
+  m_Name: text_buy_weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
