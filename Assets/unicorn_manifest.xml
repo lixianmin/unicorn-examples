@@ -9,5 +9,10 @@
     <xmlMetadataRoot>resource/metadata</xmlMetadataRoot>
     <exportMetadataRoot>Assets/res/metadata</exportMetadataRoot>
   </relativePaths>
+  <managedStrippingLevels>
+    <Android>Low</Android>
+    <iOS>Low</iOS>
+    <WebGL>Low</WebGL>
+  </managedStrippingLevels>
   <makeAutoCode>true</makeAutoCode>
 </UnicornManifest>
