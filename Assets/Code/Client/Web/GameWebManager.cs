@@ -25,6 +25,16 @@ namespace Client.Web
             var webItem = new WebItem(argument, handler);
             return webItem;
         }
+        
+        public IWebNode LoadAsset(string key, Action<IWebNode> handler)
+        {
+            return LoadAsset(new WebArgument { key = key }, handler);
+        }
+        
+        public WebPrefab LoadPrefab(string key, Action<WebPrefab> handler)
+        {
+            return LoadPrefab(new WebArgument { key = key }, handler);
+        }
 
         public new static readonly GameWebManager Instance = new();
     }

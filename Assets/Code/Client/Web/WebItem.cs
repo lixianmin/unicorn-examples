@@ -30,18 +30,16 @@ namespace Client.Web
             var loadHandle = Addressables.LoadAssetAsync<UObject>(argument.key);
             _loadHandle = loadHandle;
 
+            // LoadAssetAsync发生InvalidKeyException异常时，只会打印一条日志，不会真正的抛出异常
             while (!loadHandle.IsDone)
             {
                 yield return null;
             }
-
+            
+            // 无论加载是否成功，都需要回调到handler
             IsDone = true;
-
-            if (loadHandle.Status == AsyncOperationStatus.Succeeded)
-            {
-                IsSucceeded = true;
-                CallbackTools.Handle(ref handler, this, string.Empty);
-            }
+            IsSucceeded = loadHandle.Status == AsyncOperationStatus.Succeeded;
+            CallbackTools.Handle(ref handler, this, string.Empty);
         }
 
         protected override void _DoDispose(bool isManualDisposing)
