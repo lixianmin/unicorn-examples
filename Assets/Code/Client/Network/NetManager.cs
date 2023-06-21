@@ -5,6 +5,8 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
+using Unicorn;
+
 namespace Client.Network
 {
     public class NetManager
@@ -22,7 +24,7 @@ namespace Client.Network
         public void Connect()
         {
             // 因为缺少服务器逻辑，这里模拟一下网络连接成功后，把数据设置到客户端的逻辑
-            Console.WriteLine("fake network connected~");
+            Logo.Info("fake network connected~");
             var wallet = HostPlayer.Instance.GetWallet();
             wallet.SetDiamond(56);
             wallet.SetGold(1029);

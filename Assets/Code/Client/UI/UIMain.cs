@@ -62,7 +62,7 @@ namespace Client.UI
             
             Resources.UnloadUnusedAssets();
             GC.Collect();
-            Console.WriteLine("gc done");
+            Logo.Info("gc done");
         }
         
         // 所有成员变量统一扔到class的最后面

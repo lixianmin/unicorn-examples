@@ -19,8 +19,8 @@ namespace Scripts
         {
             rectTransform.DOAnchorPos(targetPosition, duration).SetEase(ease).OnComplete(() =>
             {
-                // Console.WriteLine(rectTransform.anchoredPosition); // anchoredPosition跟Debug模式下看到的是一样的
-                // Console.WriteLine("animation done");
+                // Logo.Info(rectTransform.anchoredPosition); // anchoredPosition跟Debug模式下看到的是一样的
+                // Logo.Info("animation done");
                 OnAnimationComplete?.Invoke();
             });
         }

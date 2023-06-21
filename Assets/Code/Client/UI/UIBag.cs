@@ -5,6 +5,7 @@ author:     lixianmin
 Copyright (C) - All Rights Reserved
 *********************************************************************/
 
+using Unicorn;
 using Unicorn.UI;
 using UnityEngine;
 
@@ -21,12 +22,12 @@ namespace Client.UI
         { 
             _btnBag.UI.onClick.AddListener(_OnClickBtnBag);
             _btnClose.UI.onClick.AddListener(_OnClickBtnClose);
-            Console.WriteLine("bag is OnLoaded, button position={0}", _btnBagTransform.UI.position);
+            Logo.Info("bag is OnLoaded, button position={0}", _btnBagTransform.UI.position);
         }
 
         private void _OnClickBtnBag()
         {
-            Console.WriteLine("click button bag");
+            Logo.Info("click button bag");
             
             // 如果是临时变量，则要求填充window参数
             UIWidget<UIText> title = new( "title", this);
@@ -40,27 +41,27 @@ namespace Client.UI
         
         protected override void OnOpened()
         {
-            Console.WriteLine("bag is OnOpened");
+            Logo.Info("bag is OnOpened");
         }
 
         protected override void OnActivated()
         {
-            Console.WriteLine("bag is OnActivated");
+            Logo.Info("bag is OnActivated");
         }
 
         protected override void OnDeactivating()
         {
-            Console.WriteLine("bag is OnDeactivating");
+            Logo.Info("bag is OnDeactivating");
         }
 
         protected override void OnClosing()
         {
-            Console.WriteLine("bag is OnClosing");
+            Logo.Info("bag is OnClosing");
         }
 
         protected override void OnUnloading()
         {
-            Console.WriteLine("bag is OnUnloading");
+            Logo.Info("bag is OnUnloading");
             _btnBag.UI.onClick.RemoveListener(_OnClickBtnBag);
             _btnClose.UI.onClick.RemoveListener(_OnClickBtnClose);
         }

@@ -34,7 +34,7 @@ namespace Client.UI
             _btnFindWeapons.UI.onClick.AddListener(_OnClickButtonFindWeapons);
             _btnBuyWeapon.UI.onClick.AddListener(_OnClickBuyWeapon);
             
-            Console.WriteLine("shop is OnLoaded");
+            Logo.Info("shop is OnLoaded");
         }
 
         private void _RefreshTextGold()
@@ -62,7 +62,7 @@ namespace Client.UI
             
             _btnBuyWeapon.UI.onClick.RemoveAllListeners();
             _btnFindWeapons.UI.onClick.RemoveAllListeners();
-            Console.WriteLine("shop is OnUnloading");
+            Logo.Info("shop is OnUnloading");
         }
 
         private void _OnClickButtonFindWeapons()
@@ -94,22 +94,22 @@ namespace Client.UI
         
         protected override void OnOpened()
         {
-            Console.WriteLine("shop is OnOpened");
+            Logo.Info("shop is OnOpened");
         }
 
         protected override void OnActivated()
         {
-            Console.WriteLine("shop is OnActivated");
+            Logo.Info("shop is OnActivated");
         }
 
         protected override void OnDeactivating()
         {
-            Console.WriteLine("shop is OnDeactivating");
+            Logo.Info("shop is OnDeactivating");
         }
 
         protected override void OnClosing()
         {
-            Console.WriteLine("shop is OnClosing");
+            Logo.Info("shop is OnClosing");
         }
         
         // 所有成员变量统一扔到class的最后面

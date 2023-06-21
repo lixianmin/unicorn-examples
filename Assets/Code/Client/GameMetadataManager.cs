@@ -9,6 +9,7 @@ using System;
 using System.Collections;
 using System.IO;
 using Metadata;
+using Unicorn;
 using Unicorn.Web;
 using UnityEngine;
 
@@ -46,7 +47,7 @@ namespace Client
             var nodes = new[]
             {
                 LoadFileAsync("Assets/res/metadata/metadata.bytes", stream => LoadRawStream(stream)),
-                LoadFileAsync("Assets/res/metadata/metadata@.bytes", LoadIncreamentStream),
+                LoadFileAsync("Assets/res/metadata/metadata@.bytes", LoadIncrementStream),
                 LoadFileAsync("Assets/res/metadata/locale.zh_cn.bytes", LoadLocaleTextStream)
             };
 
@@ -63,7 +64,7 @@ namespace Client
             }
             
             var version = GetMetadataVersion();
-            Console.WriteLine("[LoadMetadata()] Metadata Loaded, metadataVersion={0}.", version.ToString());
+            Logo.Info("[LoadMetadata()] Metadata Loaded, metadataVersion={0}.", version.ToString());
         }
 
         private static IWebNode LoadFileAsync(string key, Action<Stream> handler)
@@ -72,7 +73,7 @@ namespace Client
             {
                 if (!node.IsSucceeded)
                 {
-                    Console.Error.WriteLine($"[LoadFileAsync()] load file failed, key={key}");
+                    Logo.Error($"[LoadFileAsync()] load file failed, key={key}");
                     return;
                 }
                 
@@ -81,11 +82,11 @@ namespace Client
                 {
                     var stream = new MemoryStream(textAsset.bytes);
                     handler(stream);
-                    // Console.WriteLine(handler);
+                    // Logo.Info(handler);
                 }
                 else
                 {
-                    Console.Error.WriteLine($"textAsset={textAsset}, handler={handler}");
+                    Logo.Error($"textAsset={textAsset}, handler={handler}");
                 }
             });
         }
