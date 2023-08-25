@@ -68,7 +68,7 @@ namespace Client.UI
         private void _OnClickButtonFindWeapons()
         {
             var sbText = StringBuilderPool.Spawn();
-            var manager = GameMetadataManager.Instance;
+            var manager = GameMetadataManager.It;
             
             // 按id取template对象
             const int idTemplate = 2;

@@ -22,7 +22,7 @@ namespace Client.Web
         internal WebItem(WebArgument argument, Action<WebItem> handler)
         {
             _argument = argument;
-            CoroutineManager.Instance.StartCoroutine(_CoLoad(argument, handler));
+            CoroutineManager.It.StartCoroutine(_CoLoad(argument, handler));
         }
 
         private IEnumerator _CoLoad(WebArgument argument, Action<WebItem> handler)

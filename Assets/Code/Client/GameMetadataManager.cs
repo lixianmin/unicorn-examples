@@ -69,7 +69,7 @@ namespace Client
 
         private static IWebNode LoadFileAsync(string key, Action<Stream> handler)
         {
-            return WebManager.Instance.LoadAsset(new WebArgument{key = key}, node =>
+            return WebManager.It.LoadAsset(new WebArgument{key = key}, node =>
             {
                 if (!node.IsSucceeded)
                 {
@@ -91,6 +91,6 @@ namespace Client
             });
         }
 
-        public new static readonly GameMetadataManager Instance = new();
+        public new static readonly GameMetadataManager It = new();
     }
 }

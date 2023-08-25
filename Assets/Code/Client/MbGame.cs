@@ -40,13 +40,13 @@ namespace Client
             GameObject.DontDestroyOnLoad(gameObject);
             _unicornMain.Init();
 
-            yield return GameMetadataManager.Instance.LoadMetadata();
+            yield return GameMetadataManager.It.LoadMetadata();
 
             // 连接网络，真实项目中应该是点击登录按钮之后
             NetManager.Instance.Connect();
 
             // 加载并打开ui主界面
-            UIManager.Instance.OpenWindow(typeof(UIMain));
+            UIManager.It.OpenWindow(typeof(UIMain));
         }
 
         private void Update()
@@ -69,10 +69,10 @@ namespace Client
             }
         }
 
-        private readonly UnicornMain _unicornMain = UnicornMain.Instance;
+        private readonly UnicornMain _unicornMain = UnicornMain.It;
         private readonly Game _game = new();
-        private readonly GameWebManager _webManager = GameWebManager.Instance;  // 初始化基类中的Instance引用
-        private readonly GameMetadataManager _metadataManager = GameMetadataManager.Instance; // 初始化基类中的Instance引用
+        private readonly GameWebManager _webManager = GameWebManager.It;  // 初始化基类中的Instance引用
+        private readonly GameMetadataManager _metadataManager = GameMetadataManager.It; // 初始化基类中的Instance引用
         
         private float _lastSlowUpdateTime;
         private float _nextSlowUpdateTime;

@@ -22,43 +22,43 @@ namespace Client.UI
         protected override void OnLoaded()
         {
             // 统一注册事件
-            _listener.AddListener(_btnOpenBag.UI.onClick, OnClickOpenBag);
-            _listener.AddListener(_btnCloseBag.UI.onClick, OnClickCloseBag);
-            _listener.AddListener(_btnOpenShop.UI.onClick, OnClickOpenShop);
-            _listener.AddListener(_btnCloseShop.UI.onClick, OnClickCloseShop);
-            _listener.AddListener(_btnCollectGarbage.UI.onClick, OnClickBtnCollectGarbage);
+            _dog.AddListener(_btnOpenBag.UI.onClick, OnClickOpenBag);
+            _dog.AddListener(_btnCloseBag.UI.onClick, OnClickCloseBag);
+            _dog.AddListener(_btnOpenShop.UI.onClick, OnClickOpenShop);
+            _dog.AddListener(_btnCloseShop.UI.onClick, OnClickCloseShop);
+            _dog.AddListener(_btnCollectGarbage.UI.onClick, OnClickBtnCollectGarbage);
         }
 
         protected override void OnUnloading()
         {
             // 统一移除所有注册的事件
-            _listener.RemoveAllListeners();
+            _dog.RemoveAllListeners();
         }
 
         private void OnClickOpenBag()
         {
-            UIManager.Instance.OpenWindow(typeof(UIBag));
+            UIManager.It.OpenWindow(typeof(UIBag));
         }
         
         private void OnClickCloseBag()
         {
-            UIManager.Instance.CloseWindow(typeof(UIBag));
+            UIManager.It.CloseWindow(typeof(UIBag));
         }
         
         private void OnClickOpenShop()
         {
-            UIManager.Instance.OpenWindow(typeof(UIShop));
+            UIManager.It.OpenWindow(typeof(UIShop));
         }
         
         private void OnClickCloseShop()
         {
-            UIManager.Instance.CloseWindow(typeof(UIShop));
+            UIManager.It.CloseWindow(typeof(UIShop));
         }
         
         private void OnClickBtnCollectGarbage()
         {
-            UIManager.Instance.CloseWindow(typeof(UIShop));
-            UIManager.Instance.CloseWindow(typeof(UIBag));
+            UIManager.It.CloseWindow(typeof(UIShop));
+            UIManager.It.CloseWindow(typeof(UIBag));
             
             Resources.UnloadUnusedAssets();
             GC.Collect();
@@ -73,6 +73,6 @@ namespace Client.UI
         private readonly UIWidget<UIButton> _btnCloseShop = new( "btn_close_shop");
 
         private readonly UIWidget<UIButton> _btnCollectGarbage = new( "btn_collect_garbage");
-        private readonly EventListener _listener = new EventListener();
+        private readonly EventDog _dog = new ();
     }
 }

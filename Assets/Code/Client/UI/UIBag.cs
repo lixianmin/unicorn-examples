@@ -36,7 +36,7 @@ namespace Client.UI
 
         private void _OnClickBtnClose()
         {
-            UIManager.Instance.CloseWindow(GetType());
+            UIManager.It.CloseWindow(GetType());
         }
         
         protected override void OnOpened()

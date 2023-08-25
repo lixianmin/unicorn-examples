@@ -15,7 +15,7 @@ namespace Client
         public StockItem(int slot, int idTemplate)
         {
             _slot = slot;
-            _template = GameMetadataManager.Instance.GetTemplate<StockItemTemplate>(idTemplate);
+            _template = GameMetadataManager.It.GetTemplate<StockItemTemplate>(idTemplate);
 
             if (_template is null)
             {

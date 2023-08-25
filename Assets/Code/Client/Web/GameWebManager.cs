@@ -36,6 +36,6 @@ namespace Client.Web
             return LoadPrefab(new WebArgument { key = key }, handler);
         }
 
-        public new static readonly GameWebManager Instance = new();
+        public new static readonly GameWebManager It = new();
     }
 }
